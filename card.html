@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Merry Christmas 🎄</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="cute-bg">
+
+  <!-- Snow -->
+  <div class="snow"></div>
+
+  <!-- Floating stars / ornaments -->
+  <div class="decor-star top-left">⭐</div>
+  <div class="decor-star top-right">🎄</div>
+  <div class="decor-star bottom-left">🎁</div>
+  <div class="decor-star bottom-right">✨</div>
+
+  <!-- Christmas lights -->
+  <div class="lights">
+    <div class="light red"></div>
+    <div class="light green"></div>
+    <div class="light yellow"></div>
+    <div class="light blue"></div>
+    <div class="light pink"></div>
+  </div>
+
+  <!-- Floating cats -->
+  <img src="cs2.jpg" class="floating-cat top-left">
+  <img src="cs2.jpg" class="floating-cat top-right">
+  <img src="cs3.jpg" class="floating-cat bottom-left">
+  <img src="cs3.jpg" class="floating-cat bottom-right">
+
+  <!-- Middle left and right decorations -->
+  <img src="cs4.jpg" class="middle-cat left">
+  <img src="cs5.jpg" class="middle-cat right">
+
+  <!-- Card -->
+  <div class="message-card sparkle" id="card">
+    <div class="bow">🎀</div>
+    <h1>Merry Christmas 🎄</h1>
+    <p>
+      MEOW :3  💕<br>
+      I'm sorry I couldn't give you anything physical again and had to resort to coding, but I hope you enjoy this little thing I got you. I know I've been lacking a lot in terms of your feelings and wants, but I just want to say that I love you and I hope this made things a bit better with your day, I love you always and I'll never stop.<br><br>
+      MEOWIE CHWIZZMASS 🐱✨
+    </p>
+  </div>
+
+  <!-- Sounds -->
+  <audio id="music" src="music.mp3" loop></audio>
+  <audio id="meow" src="meow.mp3"></audio>
+
+  <script>
+    // Play music and meow on page load
+    window.onload = () => {
+      document.getElementById("music").play();
+      document.getElementById("meow").play();
+    };
+
+    // Click card to spawn paw print
+    const card = document.getElementById("card");
+    card.addEventListener("click", (e) => {
+      const paw = document.createElement("div");
+      paw.className = "paw-print";
+      paw.style.left = e.offsetX + "px";
+      paw.style.top = e.offsetY + "px";
+      card.appendChild(paw);
+      setTimeout(() => paw.remove(), 1000);
+    });
+  </script>
+
+</body>
+</html>
+

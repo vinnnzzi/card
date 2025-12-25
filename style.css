@@ -1,0 +1,211 @@
+/* ---------------- Body & Background ---------------- */
+body {
+  margin: 0;
+  font-family: "Comic Sans MS", "Arial Rounded MT Bold", sans-serif;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+}
+
+.cute-bg {
+  background: linear-gradient(#fff2f7, #ffe6ef);
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+/* ---------------- Snow ---------------- */
+.snow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(circle, white 2px, transparent 2px),
+    radial-gradient(circle, white 3px, transparent 3px),
+    radial-gradient(circle, white 1.5px, transparent 1.5px);
+  background-size: 40px 40px, 60px 60px, 80px 80px;
+  animation: snowFall 10s linear infinite;
+  opacity: 0.9;
+}
+
+@keyframes snowFall {
+  0% { background-position: 0 0, 0 0, 0 0; }
+  100% { background-position: 0 1000px, 0 800px, 0 600px; }
+}
+
+/* ---------------- Cards ---------------- */
+.card, .message-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+  border-radius: 25px;
+  max-width: 90%; /* responsive */
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  z-index: 2;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 2px dashed #ffb6c1;
+}
+
+/* Bow */
+.bow {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+/* Sparkle hover */
+.sparkle:hover {
+  box-shadow:
+    0 0 15px rgba(255,182,193,0.8),
+    0 0 25px rgba(173,216,230,0.6);
+  transform: translate(-50%, -50%) scale(1.02);
+}
+
+/* ---------------- Gift Image ---------------- */
+.gift-img {
+  width: 50%;
+  max-width: 160px;
+  margin: 20px 0;
+}
+
+/* ---------------- Button ---------------- */
+button {
+  background: #ffb6c1;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 20px;
+  font-size: 18px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto 0;
+}
+
+button:hover {
+  background: #ffa3b4;
+  transform: scale(1.05);
+}
+
+/* ---------------- Floating Cats ---------------- */
+.floating-cat {
+  width: 80px;
+  height: auto;
+  position: absolute;
+  opacity: 0.9;
+  transition: transform 0.3s;
+  animation: float 3s ease-in-out infinite;
+  z-index: 1;
+}
+
+.floating-cat:hover {
+  transform: scale(1.1);
+}
+
+/* Cat positions */
+.top-left { top: 20px; left: 20px; }
+.top-right { top: 20px; right: 20px; }
+.bottom-left { bottom: 20px; left: 20px; }
+.bottom-right { bottom: 20px; right: 20px; }
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+/* ---------------- Floating Stars / Ornaments ---------------- */
+.decor-star {
+  position: absolute;
+  font-size: 28px;
+  opacity: 0.7;
+  animation: floatStar 4s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes floatStar {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+/* ---------------- Christmas Lights ---------------- */
+.lights {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 15px;
+  z-index: 3;
+}
+
+.light {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  opacity: 0.8;
+  box-shadow: 0 0 8px rgba(255,255,255,0.5);
+  animation: twinkle 2s infinite alternate;
+}
+
+/* Light colors */
+.light.red { background: #ff4d4d; }
+.light.green { background: #4dff4d; }
+.light.yellow { background: #ffff66; }
+.light.blue { background: #66ccff; }
+.light.pink { background: #ff99cc; }
+
+@keyframes twinkle {
+  0% { opacity: 0.3; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-2px); }
+  100% { opacity: 0.3; transform: translateY(0); }
+}
+
+/* ---------------- Paw Print on Click ---------------- */
+.paw-print {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: url('paw.png') no-repeat center/contain;
+  pointer-events: none;
+  animation: pawFloat 1s ease-out forwards;
+}
+
+@keyframes pawFloat {
+  0% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-20px) scale(0.5); }
+}
+
+/* ---------------- Middle Left & Right Images ---------------- */
+.middle-cat {
+  position: absolute;
+  width: 90px;
+  height: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.9;
+  animation: float 3s ease-in-out infinite;
+  z-index: 1;
+}
+
+.middle-cat.left { left: 20px; }
+.middle-cat.right { right: 20px; }
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 500px) {
+  .floating-cat, .middle-cat { width: 50px; }
+  .decor-star { font-size: 20px; }
+  .lights { gap: 10px; }
+  .light { width: 10px; height: 10px; }
+  .gift-img { width: 60%; }
+  .card, .message-card { padding: 20px; }
+  .bow { font-size: 24px; }
+}
